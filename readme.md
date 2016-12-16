@@ -26,10 +26,17 @@ Or we can just include via CDN
 
 The next thing we need to do is to sign up for Simpla and create a project. Then, include the library and initialise Simpla with your project ID in the `<head>` of the index.html file in the template.
 
-To make things a little prettier, lets include a CSS framework so we've got some styling done for us.
+```html
+<script src="https://app.simpla.io"></script>
+
+<!-- TODO: Enter project key -->  
+<script>Simpla('PROJECT-KEY');</script>  
+```
+
+To make things a little prettier, lets include Bulma, a CSS framework, so we've got some styling included.
 
 ```html
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.2.3/css/bulma.css"
 ```
 
-##
+##	
