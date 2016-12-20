@@ -6,7 +6,7 @@ In this tutorial we are going to use Simpla to build a SPA. We will use the Page
 
 ## Get Setup
 
-First you need to clone or download this repo. 
+First you need to clone or download this Github repo. 
 
 Page.js can be installed through common package managers like npm or bower, but for this short tutorial we've opted to include the CDN to keep things simple. Open up `index.html` and you'll see we've incldued a CSS framework called Bulma. This way we get some styled components out of the box and things look a little nicer.
 
@@ -34,7 +34,7 @@ We are going to replace some of the content inside our first Card with Simpla el
 <div class="card">
   <div class="card-image">
     <figure class="image is-4by3">
-      <simpla-img sid="img"></simpla-img>
+      <simpla-img sid="img"></simpla-img> -- Here
     </figure>
   </div>
 <div class="card-content">
@@ -45,8 +45,8 @@ We are going to replace some of the content inside our first Card with Simpla el
       </figure>
     </div>
     <div class="media-content">
-      <p class="title is-5"><simpla-text sid="name"></simpla-text></p>
-      <p class="subtitle is-6"><simpla-text sid="handle"></simpla-text></p>
+      <p class="title is-5"><simpla-text sid="name"></simpla-text></p> -- Here
+      <p class="subtitle is-6"><simpla-text sid="handle"></simpla-text></p> -- Here
     </div>
   </div>
 
@@ -61,7 +61,24 @@ We are going to replace some of the content inside our first Card with Simpla el
 </div>
 ```
 
+We've converted the main image, the name and the handle tag to Simpla elements. Now we need to insert some content into them.
+
+?? Do I need to run them through #edit again ??
 
 ## Using `<simpla-block>` to organise our data
 
-The `sid` of any element inside `<simpla-block>` is scoped to that block, ensuring that its content is unique. This means that we can reduce the amount of HTML we need to use. Once we replace the
+The `sid` of any element inside `<simpla-block>` is scoped to that block, ensuring that its content is unique. This means that we can reduce the amount of HTML we need to use. 
+
+Now that we have included Simpla elements inside our first card, we can wrap it with a `<simpla-block>`.
+
+```html 
+<simpla-block class="feature" sid="0">
+  <div class="card">
+    ...
+  </div>
+</simpla-block>
+```
+
+At the moment, the only parts of our card that are dynamic are the main image, the title and the handle tag. So why should we have to replicate all the other code 3 times? With the namespacing ability of `<simpla-block>`, we don't have to. We can simply change the `sid` of the block, and all of the elements within will automatically refetch their data.
+
+## Interacting with Simpla through Javascript
